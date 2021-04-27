@@ -1,5 +1,46 @@
 * {
     box-sizing: border-box;
-    border: 2px solid red;
-    font-size: 20px;
+    border: 1px solid red;
+    font-size: 12px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.headings {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#searchForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+#featuredCity {
+    display: flex;
+    flex-direction: column;
+}
+
+#main-container {
+    display: flex;
+    height: 80vh;
+}
+
+.weather-cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+ul {
+    list-style-type: none;
+    padding: 5px;
+    margin: 2px;
 }
