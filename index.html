@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=https://youtu.be/k8yJCeuP6I8, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="./assets/style.css" />
@@ -12,17 +13,17 @@
 
 <body>
     <header>
-        <h1>Weather On the Mo-Fo Dash!</h1>
+        <h1>Weather Dashboard</h1>
     </header>
-    <main id="main-container"> 
+    <main id="main-container" class="container"> 
         <!-- aside -->
-        <aside class="form-container col-4">
+        <aside id="form-container" class="container col-4">
             <p class="headings">Search For a City</p>
             <!-- input -->
             <form id="searchForm">
-                <input type="text" id="searchText" class="col-12">
+                <input class="form-control input-lg" type="text" placeholder="San Diego"><br>
             <!-- search button -->
-                <button>Search</button>
+                <button class="btn btn-primary" type="submit">Search</button>
             </form>
             <ul id="savedCities"></ul>
             <!--saved city  -->
@@ -35,8 +36,8 @@
             <!--saved city  -->
         </aside>
         <!-- City Display Containter -->
-        <section class="container col-8">
-            <div id="featuredCity">
+        <section id="section-container" class="container col-8">
+            <div id="featuredCity" class="row">
                 <ul class="headings">Atlanta
                     <!-- Temp -->
                     <li>Temp</li>
@@ -46,40 +47,41 @@
                     <li>Humidity</li>
                     <!-- UV Index -->
                     <li>UV index:</li>
+                </ul>
             </div>
             <!-- 5-Day Forecast Cntainer -->
-            <div class="forecast-container">
-                <p class="headings">5-Day Forecast</p>
+            <div id="forecast-container" class="row">
+                <p class="headings container">5-Day Forecast</p>
                 <div class="weather-cards">
-                    <ul id="card-1">
+                    <ul id="card-1" class="col-2">
                         <li>Date</li>
                         <li>Weather Icon</li>
                         <li>Temp</li>
                         <li>Wind</li>
                         <li>Humidity</li>
                     </ul>
-                    <ul id="card-2">
+                    <ul id="card-2" class="col-2">
                         <li>Date</li>
                         <li>Weather Icon</li>
                         <li>Temp</li>
                         <li>Wind</li>
                         <li>Humidity</li>
                     </ul>
-                    <ul id="card-3">
+                    <ul id="card-3" class="col-2">
                         <li>Date</li>
                         <li>Weather Icon</li>
                         <li>Temp</li>
                         <li>Wind</li>
                         <li>Humidity</li>
                     </ul>
-                    <ul id="card-4">
+                    <ul id="card-4" class="col-2">
                         <li>Date</li>
                         <li>Weather Icon</li>
                         <li>Temp</li>
                         <li>Wind</li>
                         <li>Humidity</li>
                     </ul>
-                    <ul id="card-5">
+                    <ul id="card-5" class="col-2">
                         <li>Date</li>
                         <li>Weather Icon</li>
                         <li>Temp</li>
@@ -118,13 +120,13 @@
                 <!-- Temp -->
                 <!-- Wind -->
                 <!-- Humidity -->
+            </div>
         </section>
         
     </main>
     <script src="./assets/script.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
 </html>
