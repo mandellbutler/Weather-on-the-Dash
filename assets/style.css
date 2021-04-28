@@ -1,12 +1,13 @@
 * {
     box-sizing: border-box;
-    border: 1px solid grey;
     font-size: 12px;
 }
 
 header {
     display: flex;
     justify-content: center;
+    background-color: blue;
+    color: #ffffff;
 }
 
 .headings {
@@ -27,6 +28,7 @@ header {
 #featuredCity {
     display: flex;
     flex-direction: column;
+    border: 1px solid lightgray;
 }
 
 #main-container {
@@ -38,6 +40,11 @@ header {
 .weather-cards {
     display: flex;
     justify-content: space-between;
+    color: #ffffff;
+}
+
+.cards {
+    background-color: darkblue;
 }
 
 ul {
