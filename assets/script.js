@@ -82,7 +82,7 @@ function renderSearches() {
     savedList.appendChild(li);
   }
 }
-
+//handles the list of previously searched cities
 function handleLiClick() {
   var newSearches = []
   fetchWeather(this.textContent)
@@ -101,19 +101,29 @@ function handleLiClick() {
 
 function renderSearchResults(result) {
   featuredCity.innerHTML = ""
-  const city = document.createElement("div")
+  var city = document.createElement("div")
   city.classList.add("city")
   city.textContent = result.name
+
+  var icon = document.createElement("div")
+  icon.classList.add("weather_feature")
+  icon.textContent = result.weather[0].icon
   
-  const temp = document.createElement("div")
+  var temp = document.createElement("div")
   temp.classList.add("weather_feature")
-  temp.textContent = result.main.temp + " F"
+  temp.textContent = "Temp: " + result.main.temp + " °F"
+
+  var wind = document.createElement("div")
+  wind.classList.add("weather_feature")
+  wind.textContent = "Wind: " + result.wind.speed
   
-  const humidity = document.createElement("div")
+  var humidity = document.createElement("div")
   humidity.classList.add("weather_feature")
-  humidity.textContent = result.main.humidity + "%"
+  humidity.textContent = "Humidity: " + result.main.humidity + "%"
 
   featuredCity.appendChild(city)
+  featuredCity.appendChild(icon)
+  featuredCity.appendChild(wind)
   featuredCity.appendChild(temp)
   featuredCity.appendChild(humidity)
   console.log(result)
