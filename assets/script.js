@@ -16,18 +16,34 @@
 // //--------------------------FECTHING WEATHER DATA FROM OPEN WEATHER API
 
 // var parameter = document.getElementById("citySearch");
-
-function fetchWeather(x) {
-  var baseUrl = "http://api.openweathermap.org";
+//FEATURED CITY WEATHER REQUEST
+function fetchWeather(parameter) {
+  var baseUrl = "https://api.openweathermap.org";
   var endPoint = "/data/2.5/weather?q=";
   var apiKey = "&appid=f6c1e331ddeaf6a510ea535944b32127&units=imperial";
-  var url = baseUrl + endPoint + x + apiKey;
+  var url = baseUrl + endPoint + parameter + apiKey;
 
   fetch(url)
     .then(function (response) {
       return response.json();
     })
     .then(renderSearchResults)
+}
+
+//5DAY WEATHER REQUEST
+function fetchForecast(parameter) {
+  var baseUrl = "https://api.openweathermap.org";
+  var endPoint = "/data/2.5/forecast?q=";
+  var apiKey = "&appid=f6c1e331ddeaf6a510ea535944b32127&units=imperial";
+  var url = baseUrl + endPoint + parameter + apiKey;
+
+  fetch(url)
+    .then(function (response) {
+      console.log(response)
+      return response.json();
+    })
+    .then(render5DayResults)
+    
 }
 
 
@@ -86,6 +102,7 @@ function renderSearches() {
 function handleLiClick() {
   var newSearches = []
   fetchWeather(this.textContent)
+  fetchForecast(this.textContent)
   
   for (var i = 0; i < searches.length; i++) {
     if (searches[i] !== this.textContent) {
@@ -98,7 +115,7 @@ function handleLiClick() {
   renderSearches()
   storeSearches()
 }
-
+//=========================Rendering weather for Featured City
 function renderSearchResults(result) {
   featuredCity.innerHTML = ""
   var city = document.createElement("div")
@@ -115,7 +132,7 @@ function renderSearchResults(result) {
 
   var wind = document.createElement("div")
   wind.classList.add("weather_feature")
-  wind.textContent = "Wind: " + result.wind.speed
+  wind.textContent = "Wind: " + result.wind.speed + " MPH"
   
   var humidity = document.createElement("div")
   humidity.classList.add("weather_feature")
@@ -128,7 +145,28 @@ function renderSearchResults(result) {
   featuredCity.appendChild(humidity)
   console.log(result)
 }
+//==========================Rendering weather for 5 Day Forecast
+function render5DayResults(result) {
+  card1.innerHtml = ""
+  var temp = document.createElement("div")
+  temp.classList.add("weather_card")
+  temp.textContent = "Temp: " + result.main.temp + " °F"
 
+  var wind = document.createElement("div")
+  wind.classList.add("weather_card")
+  wind.textContent = "Wind: " + result.wind.speed
+
+  var humidity = document.createElement("div")
+  humidity.classList.add("weather_card")
+  humidity.textContent = "Humidity: " + result.main.humidity + "%"
+
+  card1.appendChild(temp)
+  card1.appendChild(wind)
+  card1.appendChild(humidity)
+  console.log(result)
+
+
+}
 function init() {
   // Retrieve the saved list from local storage and re-convert into object array
   searches = JSON.parse(localStorage.getItem("searches"));
@@ -138,6 +176,7 @@ function init() {
   
   if (searches.length > 0) {
     fetchWeather(searches[0])
+    fetchForecast(searches[0])
   }
   
   renderSearches();
@@ -167,6 +206,9 @@ searchForm.addEventListener("submit", function (event) {
   searches = newSearches
   
   fetchWeather(searchText)
+  searchText.value = "";
+
+  fetchForecast(searchText)
   searchText.value = "";
 
   
