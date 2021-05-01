@@ -148,10 +148,37 @@ function renderSearchResults(result) {
 //==========================Rendering weather for 5 Day Forecast
 function render5DayResults(result) {
   console.log(result)
-  card1.innerHtml = ""
+  for (var i = 0; i < result.length; i + 8)
+  weatherCards.innerHtml = ""
+  var card = document.createElement("div")
+  var date = document.createElement("div")
+  var icon = document.createElement("div")
   var temp = document.createElement("div")
+  var wind = document.createElement("div")
+  var humidity = document.createElement("div")
+
+  console.log(card)
+  console.log(date)
+  console.log(icon)
+  console.log(temp)
+  console.log(wind)
+  console.log(humidity)
+          //Build
+  card.classList.add("forecast_card")
+  date.classList.add("weather_card")
+  icon.classList.add("weather_card")
   temp.classList.add("weather_card")
-  temp.textContent = "Temp: " + result.list[0].main.temp + " °F"
+  wind.classList.add("weather_card")
+  humidity.classList.add("weather_card")
+  
+  card.innerHtml = ""
+  date.textContent = result.list[i].dt_txt
+  icon.textContent = result.list[i].weather[0].icon
+  temp.textContent = "Temp: " + result.list[i].main.temp + " °F"
+  wind.textContent = "Wind: " + result.list[i].wind.speed + " MPH"
+  humidity.textContent = "Humidity: " + result.list[i].main.humidity + " %"
+  
+
 
   // var wind = document.createElement("div")
   // wind.classList.add("weather_card")
@@ -160,8 +187,15 @@ function render5DayResults(result) {
   // var humidity = document.createElement("div")
   // humidity.classList.add("weather_card")
   // humidity.textContent = "Humidity: " + result.main.humidity + "%"
+        //Place
+  weatherCards.appendChild(card)
+  card.appendChild(date)
+  card.appendChild(icon)
+  card.appendChild(temp)
+  card.appendChild(wind)
+  card.appendChild(humidity)
+  
 
-  card1.appendChild(temp)
   // card1.appendChild(wind)
   // card1.appendChild(humidity)
   console.log(temp)
