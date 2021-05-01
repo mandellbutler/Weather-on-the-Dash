@@ -147,23 +147,24 @@ function renderSearchResults(result) {
 }
 //==========================Rendering weather for 5 Day Forecast
 function render5DayResults(result) {
+  console.log(result)
   card1.innerHtml = ""
   var temp = document.createElement("div")
   temp.classList.add("weather_card")
-  temp.textContent = "Temp: " + result.main.temp + " °F"
+  temp.textContent = "Temp: " + result.list[0].main.temp + " °F"
 
-  var wind = document.createElement("div")
-  wind.classList.add("weather_card")
-  wind.textContent = "Wind: " + result.wind.speed
+  // var wind = document.createElement("div")
+  // wind.classList.add("weather_card")
+  // wind.textContent = "Wind: " + result.wind.speed
 
-  var humidity = document.createElement("div")
-  humidity.classList.add("weather_card")
-  humidity.textContent = "Humidity: " + result.main.humidity + "%"
+  // var humidity = document.createElement("div")
+  // humidity.classList.add("weather_card")
+  // humidity.textContent = "Humidity: " + result.main.humidity + "%"
 
   card1.appendChild(temp)
-  card1.appendChild(wind)
-  card1.appendChild(humidity)
-  console.log(result)
+  // card1.appendChild(wind)
+  // card1.appendChild(humidity)
+  console.log(temp)
 
 
 }
