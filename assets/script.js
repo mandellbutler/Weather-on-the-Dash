@@ -45,25 +45,6 @@ function fetchForecast(parameter) {
 }
 
 
-
-// //========Ben's Example
-// var baseURL = "http://api.openweathermap.org";
-// var endPoint = "/data/2.5/weather";
-// var apiKey = "e8f89c7f6e46ebcce4956f65813111a9"
-// var parameters = "?q=houston&appid="+apiKey+"&units=imperial"
-
-// // make a request
-// fetch(baseURL + endPoint + parameters)
-// // get the response
-// .then(function(response) {
-//   console.log("response", response);
-//   return response.json();
-// })
-// .then(function(data) {
-//   console.log("data", data);
-//   // do your work with the data in here
-// })
-
 //----------------------------------------------
 //SEARCH BUTTON AND SEARCHED CITY LIST
 
@@ -217,6 +198,7 @@ function render5DayResults(results) {
   for (var result of results.list) {
     if (result.dt_txt.split(" ")[1] === "12:00:00") {
       render5DayResult(result)
+      console.log("5day Result: ", result)
     }
   }
 }
@@ -228,8 +210,27 @@ function render5DayResult(day) {
   var date = document.createElement("div")
   date.textContent = new Date(day.dt_txt).toLocaleDateString()
 
-  card.appendChild(date)
+  // var icon = document.createElement("div")
+  // icon.textContent = icon.forecast
+
+  var temp = document.createElement("div")
+  temp.textContent = "Temp: " + day.main.temp + " °F"
+
+  var wind = document.createElement("div")
+  wind.textContent = "Wind: " + day.wind.speed + " MPH"
+
+  var humidity = document.createElement("div")
+  humidity.textContent = "Humidity: " + day.main.humidity + " MPH"
+
+
+
   weatherCards.appendChild(card)
+  card.appendChild(date)
+  // card.appendChild(icon)
+  card.appendChild(temp)
+  card.appendChild(wind)
+  card.appendChild(humidity)
+
 }
 
 // function render5DayResults(result) {
