@@ -37,7 +37,7 @@ header {
 }
 
 
-.weather-cards {
+#weatherCards {
     display: flex;
     justify-content: space-between;
     color: #ffffff;
