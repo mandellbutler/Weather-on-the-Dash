@@ -97,14 +97,16 @@ function handleLiClick() {
 }
 //=========================Rendering weather for Featured City
 function renderSearchResults(result) {
+  console.log("Feature City: ", result)
   featuredCity.innerHTML = ""
   var city = document.createElement("div")
-  city.classList.add("city")
-  city.textContent = result.name
+  city.classList.add("city", "title")
+  city.textContent = result.name + "    (" + new Date().toLocaleDateString() + ")"
 
-  var icon = document.createElement("div")
+
+  var icon = document.createElement("img")
   icon.classList.add("weather_feature")
-  icon.textContent = result.weather[0].icon
+  icon.src = "http://openweathermap.org/img/wn/" + result.weather[0].icon + "@2x.png"
 
   var temp = document.createElement("div")
   temp.classList.add("weather_feature")
@@ -206,7 +208,7 @@ function render5DayResults(results) {
 
 function render5DayResult(day) {
   var card = document.createElement("div")
-  card.classList.add("col", "bg-primary", "text-light", "rounded", "mr-1")
+  card.classList.add("container", "cards", "col", "bg-success", "text-light", "rounded", "mr-1")
 
   var date = document.createElement("div")
   date.textContent = new Date(day.dt_txt).toLocaleDateString()

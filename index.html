@@ -18,11 +18,12 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <main class="container">
+    <main class="row">
         <!-- aside -->
-        <div class="row">
-            <aside class="col-2">
-                <p class="">Search For a City</p>
+        <section class="container col-4">
+            <aside class="container">
+
+                <p class="title">Search For a City</p>
                 <!-- input -->
                 <form id="searchForm">
                     <input id="searchText" class="form-control input-lg" type="text" placeholder="San Diego"><br>
@@ -40,44 +41,51 @@
                 <!--saved city  -->
             </aside>
             <!-- City Display Containter -->
-            <section class="col-10">
+        </section>
+        <section class="container col-8">
+            <div class="container">
                 <div id="featuredCity" class="jumbotron"></div>
-                <!-- 5-Day Forecast Cntainer -->
-                <p id="forecastTitle"> 5-Day Forecast</p>
-                <div id="weatherCards" class="row"></div>
+            </div>
+            <!-- 5-Day Forecast Cntainer -->
+            <div class="container row col-12">
+                <div class="container">
+                    <p class="title"> 5-Day Forecast</p>
+                </div>
+                <div class="container" id="weatherCards" class="row">
+                    <!-- Card 1 -->
+                    <!-- Date -->
+                    <!-- Weather Icon -->
+                    <!-- Temp -->
+                    <!-- Wind -->
+                    <!-- Humidity -->
+                    <!-- Card 2 -->
+                    <!-- Date -->
+                    <!-- Weather Icon -->
+                    <!-- Temp -->
+                    <!-- Wind -->
+                    <!-- Humidity -->
+                    <!-- Card 3 -->
+                    <!-- Date -->
+                    <!-- Weather Icon -->
+                    <!-- Temp -->
+                    <!-- Wind -->
+                    <!-- Humidity -->
+                    <!-- Card 4 -->
+                    <!-- Date -->
+                    <!-- Weather Icon -->
+                    <!-- Temp -->
+                    <!-- Wind -->
+                    <!-- Humidity -->
+                    <!-- Card 5 -->
+                    <!-- Date -->
+                    <!-- Weather Icon -->
+                    <!-- Temp -->
+                    <!-- Wind -->
+                    <!-- Humidity -->
+                </div>
+            </div>
+        </section>
 
-                <!-- Card 1 -->
-                <!-- Date -->
-                <!-- Weather Icon -->
-                <!-- Temp -->
-                <!-- Wind -->
-                <!-- Humidity -->
-                <!-- Card 2 -->
-                <!-- Date -->
-                <!-- Weather Icon -->
-                <!-- Temp -->
-                <!-- Wind -->
-                <!-- Humidity -->
-                <!-- Card 3 -->
-                <!-- Date -->
-                <!-- Weather Icon -->
-                <!-- Temp -->
-                <!-- Wind -->
-                <!-- Humidity -->
-                <!-- Card 4 -->
-                <!-- Date -->
-                <!-- Weather Icon -->
-                <!-- Temp -->
-                <!-- Wind -->
-                <!-- Humidity -->
-                <!-- Card 5 -->
-                <!-- Date -->
-                <!-- Weather Icon -->
-                <!-- Temp -->
-                <!-- Wind -->
-                <!-- Humidity -->
-            </section>
-        </div>
     </main>
     <script src="./assets/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
