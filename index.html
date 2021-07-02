@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <!-- <link rel="stylesheet" href="./assets/style.css" /> -->
+    <link rel="stylesheet" href="./assets/style.css" />
     <title>Weather On The Dash</title>
 </head>
 
@@ -21,7 +21,7 @@
     <main class="container">
         <!-- aside -->
         <div class="row">
-            <aside class="col-3">
+            <aside class="col-2">
                 <p class="">Search For a City</p>
                 <!-- input -->
                 <form id="searchForm">
@@ -40,10 +40,10 @@
                 <!--saved city  -->
             </aside>
             <!-- City Display Containter -->
-            <section class="col-9">
+            <section class="col-10">
                 <div id="featuredCity" class="jumbotron"></div>
                 <!-- 5-Day Forecast Cntainer -->
-                <p> 5-Day Forecast</p>
+                <p id="forecastTitle"> 5-Day Forecast</p>
                 <div id="weatherCards" class="row"></div>
 
                 <!-- Card 1 -->

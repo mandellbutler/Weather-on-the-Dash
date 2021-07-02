@@ -195,6 +195,7 @@ function renderSearchResults(result) {
 
 // var forecastIndex = 0;
 function render5DayResults(results) {
+  weatherCards.innerHTML = ""
   for (var result of results.list) {
     if (result.dt_txt.split(" ")[1] === "12:00:00") {
       render5DayResult(result)
