@@ -106,7 +106,7 @@ function renderSearchResults(result) {
 
   var icon = document.createElement("img")
   icon.classList.add("weather_feature")
-  icon.src = "http://openweathermap.org/img/wn/" + result.weather[0].icon + "@2x.png"
+  icon.setAttribute("src", "http://openweathermap.org/img/wn/" + result.weather[0].icon + "@2x.png");
 
   var temp = document.createElement("div")
   temp.classList.add("weather_feature")
@@ -213,8 +213,9 @@ function render5DayResult(day) {
   var date = document.createElement("div")
   date.textContent = new Date(day.dt_txt).toLocaleDateString()
 
-  // var icon = document.createElement("div")
-  // icon.textContent = icon.forecast
+  var icon = document.createElement("img")
+  icon.classList.add("weather_feature")
+  icon.setAttribute("src", "http://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png");
 
   var temp = document.createElement("div")
   temp.textContent = "Temp: " + day.main.temp + " °F"
@@ -229,7 +230,7 @@ function render5DayResult(day) {
 
   weatherCards.appendChild(card)
   card.appendChild(date)
-  // card.appendChild(icon)
+  card.appendChild(icon)
   card.appendChild(temp)
   card.appendChild(wind)
   card.appendChild(humidity)
