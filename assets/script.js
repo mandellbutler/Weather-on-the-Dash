@@ -52,6 +52,7 @@ var userInput = document.querySelector("#searchText");
 var searchForm = document.querySelector("#searchForm");
 var savedList = document.querySelector("#savedCities");
 var featuredCity = document.querySelector("#featuredCity");
+var featureIcon = document.querySelector("#featureIcon");
 var weatherCards = document.querySelector("#weatherCards");
 
 var searches = [];
@@ -110,7 +111,7 @@ function renderSearchResults(result) {
 
   var temp = document.createElement("div")
   temp.classList.add("weather_feature")
-  temp.textContent = "Temp: " + result.main.temp + " °F"
+  temp.textContent = "Temp: " + (Math.round(result.main.temp)) + " °F"
 
   var wind = document.createElement("div")
   wind.classList.add("weather_feature")
@@ -122,11 +123,12 @@ function renderSearchResults(result) {
 
   featuredCity.appendChild(city)
   featuredCity.appendChild(icon)
-  featuredCity.appendChild(wind)
   featuredCity.appendChild(temp)
+  featuredCity.appendChild(wind)
   featuredCity.appendChild(humidity)
   // console.log(result)
 }
+
 //==========================Rendering weather for 5 Day Forecast
 // function render5DayResults(result) {
 //   console.log(result)
@@ -218,13 +220,13 @@ function render5DayResult(day) {
   icon.setAttribute("src", "http://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png");
 
   var temp = document.createElement("div")
-  temp.textContent = "Temp: " + day.main.temp + " °F"
+  temp.textContent = "Temp: " + (Math.round(day.main.temp)) + " °F"
 
   var wind = document.createElement("div")
-  wind.textContent = "Wind: " + day.wind.speed + " MPH"
+  wind.textContent = "Wind: " + (Math.round(day.wind.speed)) + " MPH"
 
   var humidity = document.createElement("div")
-  humidity.textContent = "Humidity: " + day.main.humidity + " MPH"
+  humidity.textContent = "Humidity: " + day.main.humidity + "%"
 
 
 
