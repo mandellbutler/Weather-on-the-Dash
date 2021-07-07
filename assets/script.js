@@ -52,7 +52,6 @@ var userInput = document.querySelector("#searchText");
 var searchForm = document.querySelector("#searchForm");
 var savedList = document.querySelector("#savedCities");
 var featuredCity = document.querySelector("#featuredCity");
-var featureIcon = document.querySelector("#featureIcon");
 var weatherCards = document.querySelector("#weatherCards");
 
 var searches = [];
@@ -108,6 +107,7 @@ function renderSearchResults(result) {
   var icon = document.createElement("img")
   icon.classList.add("weather_feature")
   icon.setAttribute("src", "http://openweathermap.org/img/wn/" + result.weather[0].icon + "@2x.png");
+  icon.setAttribute("class", "col-3")
 
   var temp = document.createElement("div")
   temp.classList.add("weather_feature")
@@ -121,12 +121,31 @@ function renderSearchResults(result) {
   humidity.classList.add("weather_feature")
   humidity.textContent = "Humidity: " + result.main.humidity + "%"
 
+  var lat = result.coord.lat;
+  var lon = result.coord.lon;
+  var baseUrl = "https://api.openweathermap.org";
+  var endPoint = "data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon;
+  var apiKey = "&appid=f6c1e331ddeaf6a510ea535944b32127";
+  var uvUrl = baseUrl + endPoint + apiKey;
+
+  fetch(uvUrl)
+    .then(function (response) {
+      console.log("UV Response: ", response)
+      var uvIndex = document.createElement("div");
+      uvIndex.setAttribute("class", "badge badge-danger");
+      uvIndex.textContent = "UV Index: " + response.data[0].value;
+    })
+
   featuredCity.appendChild(city)
   featuredCity.appendChild(icon)
   featuredCity.appendChild(temp)
   featuredCity.appendChild(wind)
   featuredCity.appendChild(humidity)
-  // console.log(result)
+  featuredCity.appendChild(uvIndex)
+
+
+
+
 }
 
 //==========================Rendering weather for 5 Day Forecast
