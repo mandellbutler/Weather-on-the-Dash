@@ -1,12 +1,11 @@
 * {
     box-sizing: border-box;
-    font-size: 18px;
 }
 
 header {
     display: flex;
     justify-content: center;
-    background-color: blue;
+    background-image: linear-gradient(to bottom right,#9370db, #7b68ee);
     color: #ffffff;
 }
 
@@ -15,38 +14,41 @@ header {
     font-weight: bold;
 }
 
+/* Search Form Section */
 #searchForm {
     display: flex;
     flex-direction: column;
 }
 
-.section-container {
-    display: flex;
-    flex-direction: column;
+#searchBtn {
+    background-image: linear-gradient(to bottom right,#9370db, #7b68ee);
 }
 
+/* Feature city Container */
 #featuredCity {
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
+    border: 3px solid #7b68ee;
+    background-color: #e6e6fa;
     margin-top: 30px;
     line-height: 2.5;
 }
 
-#main-container {
+main {
+    background-color: #f5f5f5;
     display: flex;
-    height: 80vh;
+    flex-wrap: wrap;
 }
 
-
+/* 5Day forecast Section */
 #weatherCards {
     display: flex;
     color: #ffffff;
     font-size: 15px;
-    /* font-weight: bold; */
-    /* width: 100%; */
     height: 35vh;
     line-height: 1.5;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .title {
@@ -55,15 +57,20 @@ header {
 }
 
 .cards {
-    background-color: green;
     display: flex;
     flex-direction: column;
-    /* width: 25%; */
-    font-size: 10px;
+    font-size: 16px;
     padding: 20px 10px 10px;
+    margin-top: 3px;
+    background-image: linear-gradient(to bottom right,#9370db, #7b68ee)
 }
 
-/* ul {
-    list-style-type: none;
-    padding: 2px;
-} */
+ /* Footer */
+footer {
+    background-color: #f5f5f5;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 12px;
+}

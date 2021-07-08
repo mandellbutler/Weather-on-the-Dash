@@ -95,6 +95,7 @@ function handleLiClick() {
   renderSearches()
   storeSearches()
 }
+
 //=========================Rendering weather for Featured City
 function renderSearchResults(result) {
   console.log("Feature City: ", result)
@@ -115,36 +116,18 @@ function renderSearchResults(result) {
 
   var wind = document.createElement("div")
   wind.classList.add("weather_feature")
-  wind.textContent = "Wind: " + result.wind.speed + " MPH"
+  wind.textContent = "Wind: " + (Math.round(result.wind.speed)) + " MPH"
 
   var humidity = document.createElement("div")
   humidity.classList.add("weather_feature")
   humidity.textContent = "Humidity: " + result.main.humidity + "%"
 
-  var lat = result.coord.lat;
-  var lon = result.coord.lon;
-  var baseUrl = "https://api.openweathermap.org";
-  var endPoint = "data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon;
-  var apiKey = "&appid=f6c1e331ddeaf6a510ea535944b32127";
-  var uvUrl = baseUrl + endPoint + apiKey;
-
-  fetch(uvUrl)
-    .then(function (response) {
-      console.log("UV Response: ", response)
-      var uvIndex = document.createElement("div");
-      uvIndex.setAttribute("class", "badge badge-danger");
-      uvIndex.textContent = "UV Index: " + response.data[0].value;
-    })
 
   featuredCity.appendChild(city)
   featuredCity.appendChild(icon)
   featuredCity.appendChild(temp)
   featuredCity.appendChild(wind)
   featuredCity.appendChild(humidity)
-  featuredCity.appendChild(uvIndex)
-
-
-
 
 }
 
