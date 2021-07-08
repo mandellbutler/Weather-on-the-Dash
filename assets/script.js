@@ -95,36 +95,42 @@ function handleLiClick() {
   renderSearches()
   storeSearches()
 }
+
 //=========================Rendering weather for Featured City
 function renderSearchResults(result) {
+  console.log("Feature City: ", result)
   featuredCity.innerHTML = ""
   var city = document.createElement("div")
-  city.classList.add("city")
-  city.textContent = result.name
+  city.classList.add("city", "title")
+  city.textContent = result.name + "    (" + new Date().toLocaleDateString() + ")"
 
-  var icon = document.createElement("div")
+
+  var icon = document.createElement("img")
   icon.classList.add("weather_feature")
-  icon.textContent = result.weather[0].icon
+  icon.setAttribute("src", "http://openweathermap.org/img/wn/" + result.weather[0].icon + "@2x.png");
+  icon.setAttribute("class", "col-3")
 
   var temp = document.createElement("div")
   temp.classList.add("weather_feature")
-  temp.textContent = "Temp: " + result.main.temp + " °F"
+  temp.textContent = "Temp: " + (Math.round(result.main.temp)) + " °F"
 
   var wind = document.createElement("div")
   wind.classList.add("weather_feature")
-  wind.textContent = "Wind: " + result.wind.speed + " MPH"
+  wind.textContent = "Wind: " + (Math.round(result.wind.speed)) + " MPH"
 
   var humidity = document.createElement("div")
   humidity.classList.add("weather_feature")
   humidity.textContent = "Humidity: " + result.main.humidity + "%"
 
+
   featuredCity.appendChild(city)
   featuredCity.appendChild(icon)
-  featuredCity.appendChild(wind)
   featuredCity.appendChild(temp)
+  featuredCity.appendChild(wind)
   featuredCity.appendChild(humidity)
-  // console.log(result)
+
 }
+
 //==========================Rendering weather for 5 Day Forecast
 // function render5DayResults(result) {
 //   console.log(result)
@@ -195,6 +201,7 @@ function renderSearchResults(result) {
 
 // var forecastIndex = 0;
 function render5DayResults(results) {
+  weatherCards.innerHTML = ""
   for (var result of results.list) {
     if (result.dt_txt.split(" ")[1] === "12:00:00") {
       render5DayResult(result)
@@ -205,28 +212,29 @@ function render5DayResults(results) {
 
 function render5DayResult(day) {
   var card = document.createElement("div")
-  card.classList.add("col", "bg-primary", "text-light", "rounded", "mr-1")
+  card.classList.add("container", "cards", "col", "bg-success", "text-light", "rounded", "mr-1")
 
   var date = document.createElement("div")
   date.textContent = new Date(day.dt_txt).toLocaleDateString()
 
-  // var icon = document.createElement("div")
-  // icon.textContent = icon.forecast
+  var icon = document.createElement("img")
+  icon.classList.add("weather_feature")
+  icon.setAttribute("src", "http://openweathermap.org/img/wn/" + day.weather[0].icon + "@2x.png");
 
   var temp = document.createElement("div")
-  temp.textContent = "Temp: " + day.main.temp + " °F"
+  temp.textContent = "Temp: " + (Math.round(day.main.temp)) + " °F"
 
   var wind = document.createElement("div")
-  wind.textContent = "Wind: " + day.wind.speed + " MPH"
+  wind.textContent = "Wind: " + (Math.round(day.wind.speed)) + " MPH"
 
   var humidity = document.createElement("div")
-  humidity.textContent = "Humidity: " + day.main.humidity + " MPH"
+  humidity.textContent = "Humidity: " + day.main.humidity + "%"
 
 
 
   weatherCards.appendChild(card)
   card.appendChild(date)
-  // card.appendChild(icon)
+  card.appendChild(icon)
   card.appendChild(temp)
   card.appendChild(wind)
   card.appendChild(humidity)
