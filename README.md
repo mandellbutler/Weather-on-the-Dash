@@ -9,8 +9,10 @@
 - [Contact](#contact)
 
 # Description
-
-Weather On the Dash is a weather application that allows users to check current and future weather conditions for a chosen city. The application features prominent displays for temperature, wind speed and humidity, and utilizes local storage to save user's search history. The responsive design of this web application is mobile friendly, enabling users to recieve up to date weather forecasts, both at home and on the go.
+Among the many technological advances that have shaped human history, none has been more impactful than man's ability to forecast weather conditions. In war, the ability to predict and use weather as an advantage can mean the difference between victory and defeat on the battlefield. Farmers depend on weather forecasts for crop production, while others use forecasting to plan leisurely activities. Today, with global warming on the rise, the ability to attain clear, accurate, and up to date weather forecasts is at an all time high. 
+ 
+Weather On the Dash is a weather application that allows users to check current and future weather conditions for a chosen city. The application features prominent displays for temperature, wind speed and humidity, and utilizes local storage to save user's search history. The responsive design of this web application is mobile friendly, enabling users to receive up to date weather forecasts, both at home and on the go. No matter the user, Weather On the Dash is guaranteed to provide reliable weather conditions to meet their specific needs.
+ 
 
 
 
